@@ -1,0 +1,14 @@
+keycloak:
+  realm: soap-to-rest
+  resource: country-api
+  auth-server-url: http://localhost:8081/auth
+  ssl-required: external
+  public-client: true
+  securityConstraints:
+    - authRoles:
+        - country-api
+      securityCollections:
+        - name: api-resource
+          patterns:
+            - /rest/*
+  enable-basic-auth: true
